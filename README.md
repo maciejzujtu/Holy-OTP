@@ -1,13 +1,13 @@
-# HolyC TOTP Generator
+# TOTP Generator written in HolyC
 
-This project is a fully functional Time-Based One-Time Password (TOTP) generator written entirely in HolyC, implementing HMAC-SHA256 and Base32 decoding from scratch. It features a live command-line interface that continuously updates your 2FA code and countdown timer natively on macOS and Linux.
+Ever wanted your OTP codes to be looked after by the higher power? Well I mean I assumed no but still why not right. A while ago I made a simple discord activity game in TypeScript which also used OTP code mechanism, that later on kinda motivated me to look more into the logic and implementation of OTP and eventually we're here. So strictly speaking it's just a project for learning something new.
 
 ## Installing the Compiler
 
-To build this project, you need the `hcc` compiler installed on your system. You can download and install it directly from the [HolyC GitHub repository](https://github.com/Jamesbarford/holyc-lang) by running the following commands:
+In order to build this project, you need the `hcc` compiler installed on your system. You can download and install it directly from the [HolyC repository](https://github.com/Jamesbarford/holyc-lang) by running the following commands:
 
 ```bash
-git clone [https://github.com/Jamesbarford/holyc-lang.git](https://github.com/Jamesbarford/holyc-lang.git)
+git clone https://github.com/Jamesbarford/holyc-lang.git
 cd HolyC
 make
 sudo make install
