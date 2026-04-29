@@ -1,0 +1,6 @@
+#ifndef CONFIG_HH
+#define CONFIG_HH
+
+U8* TOTP_SECRET = "JBSWY3DPEHPK3PXP";
+
+#endif

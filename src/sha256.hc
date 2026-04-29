@@ -45,13 +45,13 @@ U0 SHA256_Transform(SHA256_BUF* buf, U8* block) {
     U32 a, b, c, d, e, f, g, h;
     U32 aux, bux;
 
-    I8 i;
+    I64 i;
 
     for ( i = 0; i < 16; i++ ) {
-        W[i] =  ( (U32) block[(i*4)+0] << 24 ) |
-                ( (U32) block[(i*4)+1] << 16 ) |
-                ( (U32) block[(i*4)+2] << 8  ) |
-                ( (U32) block[(i*4)+3]       );
+        W[i] =  (block[i*4+0] << 24) |
+                (block[i*4+1] << 16) |
+                (block[i*4+2] <<  8) |
+                (block[i*4+3]);
     }
 
     for ( i = 16; i < 64; i++ ) {
@@ -101,8 +101,12 @@ U0 SHA256_Transform(SHA256_BUF* buf, U8* block) {
 
 U0 SHA256_Update(SHA256_BUF* buf, U8* block, I64 size) {
     I64 i;
-    for ( i = 0; i < size; i++ ) {
-        buf->buf[ buf->buf_size++ ] = data[i];
+    I64 idx;
+
+    for (i = 0; i < size; i++) {
+        idx = buf->buf_size;
+        buf->buf[idx] = block[i];
+        buf->buf_size++;
 
         if (buf->buf_size == 64) {
             SHA256_Transform(buf, buf->buf);
@@ -118,15 +122,15 @@ U0 SHA256_Finalize(SHA256_BUF* buf) {
     I64 i;
     U8  b;
 
+    bit_len = buf->data_size * 8;
+
     b = 0x80;
     SHA256_Update(buf, &b, 1);
-
     b = 0x00;
     while ( buf->buf_size != 56 ) {
         SHA256_Update(buf, &b, 1);
     }
 
-    bit_len = (buf->data_size - 1) * 8;
     for ( i = 7; i >= 0; i-- ) {
         b = (bit_len >> (i * 8)) & 0xFF;
         SHA256_Update(buf, &b, 1);
@@ -145,9 +149,9 @@ U0 SHA256_Read(SHA256_BUF* buf, U8* hash) {
 
 U0 SHA256_ReadHex(SHA256_BUF* buf, U8* hex) {
     U8  hash[32];
-    U8  digits[] = "0123456789abcdef";
+    U8  *digits = "0123456789abcdef"; 
     I64 i;
-
+    
     SHA256_Read(buf, hash);
 
     for (i = 0; i < 32; i++) {

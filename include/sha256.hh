@@ -15,7 +15,6 @@
 #define SHA256_HH
 
 
-
 class SHA256_BUF {
     /**
      * Total bytes fed to SHA256_Update so far. Used to
@@ -42,7 +41,7 @@ class SHA256_BUF {
 
 U0  SHA256_Init     (SHA256_BUF* buf);
 U0  SHA256_Transform(SHA256_BUF *buf, U8 *block);
-U0  SHA256_Update   (SHA256_BUF* buf, U8* buf, I64 size);
+U0  SHA256_Update   (SHA256_BUF* buf, U8* block, I64 size);
 U0  SHA256_Finalize (SHA256_BUF* buf);
 U0  SHA256_Read     (SHA256_BUF* buf, U8* hash);
 U0  SHA256_ReadHex  (SHA256_BUF* buf, U8* hex);
