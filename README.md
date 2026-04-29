@@ -7,7 +7,7 @@ I had to learn about OTP for one of my previous projects. Whilst the project in 
 Obviously HolyC's `hcc` compiler needs to be installed on your system. You can download it from [HolyC repository](https://github.com/Jamesbarford/holyc-lang) and then just run the following commands:
 
 ```bash
-git clone [https://github.com/Jamesbarford/holyc-lang.git](https://github.com/Jamesbarford/holyc-lang.git)
+git clone https://github.com/Jamesbarford/holyc-lang.git
 cd HolyC
 make
 sudo make install
