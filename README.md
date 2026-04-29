@@ -22,7 +22,7 @@ sudo make install
 #ifndef CONFIG_HH
 #define CONFIG_HH
 
-U8* TOTP_SECRET = "JBSWY3DPEHPK3PXP"; // <-- Put your secret code here
+U8* TOTP_SECRET = "JBSWY3DPEHPK3PXP"; // <-- Secret
 
 #endif
 ```
