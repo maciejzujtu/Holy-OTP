@@ -1,6 +1,6 @@
 # TOTP Generator written in HolyC
 
-I had to learn about OTP for one of my previous projects. Whilst the project in question is no longer maintained, the mechanism was interesting enough to learn more about, which made me dive back into it. Since my current university modules familiarized me with the C language, I decided to rewrite it into HolyC.
+I had to learn about OTP for one of my previous projects. Whilst the project in question is no longer remained it was still fun to learn about cryptography behind it.
 
 ## Installing the Compiler
 
